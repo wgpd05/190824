@@ -4,12 +4,16 @@ type TOptionList = Array<{score: number, hint: string, imageUrl: string}>;
 type TQuestion = {description: string, optionList: TOptionList};
 declare function showToast(h, t): any;
 
+declare let $: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  hoverIdx = -1;
 
   question: TQuestion = {
     description: "哪一隻是貓?",
@@ -28,5 +32,14 @@ export class AppComponent {
       showToast("Hint", "不對哦! 我是" + this.question.optionList[index].hint);
     }
   }
+
+  // ngAfterViewInit() {
+  //   $(".pet").on("mouseenter", function () {
+  //     $(this).removeClass("img-thumbnail");
+  //   })
+  //   $(".pet").on("mouseleave", function () {
+  //     $(this).addClass("img-thumbnail");
+  //   })
+  // }  
 
 }
