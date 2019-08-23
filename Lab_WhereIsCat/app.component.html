@@ -1,0 +1,18 @@
+<div class="container">
+
+    <div class="page-header"><h2>{{question.description}}</h2></div>
+
+    <div class="row" id="divPets">
+
+        <div *ngFor="let optionItem of question.optionList; let idx = index;"
+        class="col-sm-4">
+            <img [src]="optionItem.imageUrl"
+                 class="pet img-responsive img-thumbnail"
+                 (click)="imageClick(idx)"
+                  />
+        </div>
+
+    </div>  <!-- end of row -->
+
+</div> <!-- end of container -->
+
